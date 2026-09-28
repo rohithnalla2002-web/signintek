@@ -1,0 +1,516 @@
+/* Refined overlay on top of the original visual system */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scrollbar-color: #247BFF #07111C;
+}
+
+::selection {
+  background: rgba(39, 211, 255, 0.32);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid #27D3FF;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 400;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #247BFF;
+  color: #fff;
+  font: 700 12px/1 Inter, sans-serif;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.loader.done {
+  pointer-events: none;
+}
+
+.progress {
+  width: 2px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.progress i {
+  border-radius: 99px;
+}
+
+.nav {
+  padding: 0 36px;
+  height: 80px;
+}
+
+.nav.scrolled {
+  height: 68px;
+  background: rgba(5, 11, 20, 0.82);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+}
+
+.logo b {
+  letter-spacing: 0.1em;
+}
+
+.logo small {
+  letter-spacing: 0.32em;
+  opacity: 0.64;
+}
+
+.nav nav a {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #c9d6e6;
+  transition: color 0.25s;
+}
+
+.nav nav a:hover {
+  color: #fff;
+}
+
+.nav nav a:after {
+  bottom: -8px;
+  height: 1px;
+  background: linear-gradient(90deg, #27D3FF, #7C5CFF);
+}
+
+.nav-cta {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 11px 18px;
+  border-color: rgba(39, 211, 255, 0.28);
+  background: rgba(39, 211, 255, 0.06);
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.nav-cta:hover {
+  background: rgba(39, 211, 255, 0.14);
+  border-color: rgba(39, 211, 255, 0.55);
+  box-shadow: 0 8px 24px rgba(39, 211, 255, 0.12);
+  color: #fff;
+}
+
+.menu {
+  width: 44px;
+  height: 44px;
+  display: none;
+  place-items: center;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.menu i {
+  width: 18px;
+  height: 1.5px;
+  margin: 3px auto;
+  background: #fff;
+}
+
+@media (max-width: 760px) {
+  .menu {
+    display: grid !important;
+  }
+}
+
+.mobile-panel {
+  background: rgba(4, 10, 18, 0.98);
+}
+
+.mobile-panel a {
+  transition: color 0.25s, padding-left 0.25s;
+}
+
+.mobile-panel a:hover {
+  color: #27D3FF;
+  padding-left: 8px;
+}
+
+.hero-copy {
+  width: min(640px, 52vw);
+}
+
+.eyebrow {
+  letter-spacing: 0.2em;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 6.4vw, 96px);
+}
+
+.hero-lead {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #b7c5d4;
+  max-width: 540px;
+}
+
+.hero-actions {
+  margin-top: 34px;
+  gap: 14px;
+}
+
+.btn {
+  padding: 16px 22px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+.btn.primary {
+  box-shadow: 0 12px 34px rgba(36, 123, 255, 0.28);
+}
+
+.btn.ghost {
+  backdrop-filter: blur(10px);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn.magnet:hover {
+  /* Pointer tracking owns transform; keep the hover feel in light/shadow. */
+  transform: none;
+  filter: brightness(1.06);
+}
+
+.btn.primary:hover {
+  box-shadow: 0 16px 42px rgba(39, 211, 255, 0.32);
+}
+
+#heroCanvas,
+#ctaCanvas {
+  pointer-events: auto;
+}
+
+.hero-book {
+  right: 3.5%;
+}
+
+.ticker {
+  padding: 15px 0;
+}
+
+.section {
+  padding: 132px 0;
+}
+
+.section-head.split p,
+.dark .section-head p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.about-copy .lead {
+  font-size: 20px;
+  line-height: 1.7;
+  color: #1f2d3d;
+}
+
+.about-copy > p:not(.kicker) {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #516274;
+}
+
+.about-side b {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.about-side small {
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.service-card-3d {
+  min-height: 252px;
+  padding: 26px 24px 24px;
+}
+
+.service-card-copy h3 {
+  font-size: 20px;
+}
+
+.service-card-copy p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #93a4b7;
+  max-width: 280px;
+}
+
+.service-3d-stage {
+  margin-top: 48px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.data-copy > p:not(.kicker) {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #93a3b6;
+}
+
+.pipe-node {
+  transition: transform 0.35s, border-color 0.35s, box-shadow 0.35s;
+}
+
+.pipe-node:hover {
+  transform: translateY(-6px);
+  border-color: rgba(39, 211, 255, 0.55);
+  box-shadow: 0 16px 36px rgba(39, 211, 255, 0.12);
+}
+
+.solution-card {
+  border-radius: 22px;
+  min-height: 500px;
+}
+
+.solution-visual {
+  border-radius: 22px 22px 0 0;
+}
+
+.solution-card > small,
+.solution-card > h3,
+.solution-card > p,
+.solution-card > a {
+  margin-left: 28px;
+  margin-right: 28px;
+}
+
+.solution-card h3 {
+  font-size: 28px;
+}
+
+.solution-card p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #5d6f82;
+  min-height: 64px;
+}
+
+.solution-card a {
+  font-size: 12px;
+}
+
+.industry-insight {
+  border-radius: 24px;
+}
+
+.insight-copy p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #8fa1b4;
+}
+
+.industry-ecosystem-3d,
+.industry-command-3d,
+.industry-portal-3d {
+  margin-bottom: 56px;
+  border-radius: 24px;
+}
+
+@media (min-width: 761px) {
+  .industry-panels {
+    display: flex;
+    grid-template-columns: none;
+    height: 520px;
+    gap: 6px;
+  }
+
+  .industry-panel {
+    flex: 1 1 0;
+    min-width: 0;
+    border-radius: 18px;
+    transition: flex 0.7s cubic-bezier(0.2, 0.75, 0.25, 1), opacity 0.45s;
+  }
+
+  .industry-panel.active,
+  .industry-panel:hover {
+    flex: 2.35 1 0;
+    opacity: 1;
+  }
+
+  .industry-panels:hover .industry-panel.active:not(:hover) {
+    flex: 1 1 0;
+    opacity: 0.78;
+  }
+}
+
+.ip-content h3 {
+  font-size: 28px;
+}
+
+.ip-content p {
+  font-size: 13px;
+  line-height: 1.65;
+  max-width: 280px;
+  color: #9aadc0;
+}
+
+.process-journey article b {
+  font-size: 15px;
+  letter-spacing: 0.04em;
+}
+
+.process-journey article p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #5e7084;
+  max-width: 200px;
+}
+
+.process-console {
+  border-radius: 24px;
+}
+
+.principle-copy > p:not(.kicker) {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #8b9baf;
+}
+
+.principle-list b {
+  font-size: 16px;
+}
+
+.career-layout > div:first-child > p:not(.kicker),
+.contact-copy > p:not(.kicker) {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #93a3b6;
+}
+
+.career-window,
+.contact-visual {
+  filter: drop-shadow(0 24px 60px rgba(0, 0, 0, 0.28));
+}
+
+.footer {
+  padding: 88px 0 32px;
+}
+
+.footer-main p {
+  font-size: 14px;
+  line-height: 1.75;
+  max-width: 280px;
+}
+
+.footer-main a:not(.logo) {
+  font-size: 13px;
+}
+
+.footer-bottom {
+  font-size: 12px;
+  color: #6a7d91;
+}
+
+@media (max-width: 1180px) and (min-width: 761px) {
+  .hero-copy {
+    width: min(520px, 48vw);
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 5.5vw, 78px);
+  }
+
+  .hero-book {
+    right: -2%;
+    width: min(460px, 40vw);
+  }
+}
+
+@media (max-width: 760px) {
+  .nav {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 92px 0;
+  }
+
+  .hero {
+    padding-top: 140px;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+  }
+
+  .hero-copy {
+    width: auto;
+    position: relative;
+    z-index: 12;
+  }
+
+  .hero-lead {
+    font-size: 15px;
+    max-width: 100%;
+    padding-right: 12px;
+  }
+
+  .hero-actions {
+    position: relative;
+    z-index: 13;
+  }
+
+  .hero-book {
+    top: auto;
+    bottom: -24px;
+    right: -110px;
+    opacity: 0.38;
+    pointer-events: none;
+    z-index: 4;
+    filter: blur(0.2px);
+  }
+
+  .service-card-copy p,
+  .solution-card p,
+  .insight-copy p,
+  .ip-content p {
+    font-size: 14px;
+  }
+
+  .solution-card {
+    min-height: 460px;
+  }
+}
+
+.line-link {
+  transition: border-color 0.3s, color 0.3s, gap 0.3s;
+}
+
+.line-link:hover {
+  border-color: #247BFF;
+  gap: 28px;
+}
+
+@media (hover: none) {
+  .cursor {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav nav a:after,
+  .nav-cta,
+  .btn,
+  .pipe-node,
+  .industry-panel,
+  .mobile-panel a {
+    transition: none;
+  }
+}
