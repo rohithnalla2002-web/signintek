@@ -59,13 +59,34 @@ html {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
 }
 
-.logo b {
-  letter-spacing: 0.1em;
+.logo {
+  flex-direction: row;
+  align-items: center;
+  line-height: 0;
 }
 
-.logo small {
-  letter-spacing: 0.32em;
-  opacity: 0.64;
+.logo img,
+.loader-mark img {
+  display: block;
+  height: 52px;
+  width: auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.nav.scrolled .logo img {
+  height: 44px;
+}
+
+.footer .logo img {
+  height: 64px;
+}
+
+.loader-mark img {
+  height: 78px;
+  border-radius: 12px;
+  padding: 8px 12px;
 }
 
 .nav nav a {
@@ -208,6 +229,21 @@ html {
   padding: 132px 0;
 }
 
+.section.services {
+  padding-bottom: 0;
+}
+
+.section.data-section {
+  min-height: 0;
+  align-items: flex-start;
+  padding-top: 0;
+}
+
+.data-section .data-layout {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .section-head.split p,
 .dark .section-head p {
   font-size: 16px;
@@ -319,23 +355,43 @@ html {
 .industry-ecosystem-3d,
 .industry-command-3d,
 .industry-portal-3d {
-  margin-bottom: 56px;
+  margin-bottom: 20px;
   border-radius: 24px;
+}
+
+.section.industries {
+  padding-bottom: 36px;
+}
+
+.section.process {
+  padding-top: 48px;
+}
+
+.industry-panels {
+  height: auto;
+  margin-bottom: 0;
 }
 
 @media (min-width: 761px) {
   .industry-panels {
     display: flex;
     grid-template-columns: none;
-    height: 520px;
+    height: auto;
+    align-items: stretch;
     gap: 6px;
   }
 
   .industry-panel {
     flex: 1 1 0;
     min-width: 0;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     border-radius: 18px;
-    transition: flex 0.7s cubic-bezier(0.2, 0.75, 0.25, 1), opacity 0.45s;
+    opacity: 1;
+    container-type: inline-size;
+    transition: flex 0.7s cubic-bezier(0.2, 0.75, 0.25, 1);
   }
 
   .industry-panel.active,
@@ -350,8 +406,41 @@ html {
   }
 }
 
+.industry-panel .ip-content,
+.industry-panel.active .ip-content,
+.industry-panel:hover .ip-content {
+  position: relative;
+  z-index: 2;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  padding: 96px 18px 22px;
+}
+
+.ip-content b {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
 .ip-content h3 {
-  font-size: 28px;
+  font-size: clamp(16px, 1.5vw, 24px);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+@container (max-width: 240px) {
+  .ip-content h3 {
+    font-size: 16px;
+  }
+}
+
+.ip-word {
+  font-size: 34px;
+  top: 18px;
 }
 
 .ip-content p {
@@ -436,6 +525,18 @@ html {
 @media (max-width: 760px) {
   .nav {
     padding: 0 16px;
+  }
+
+  .logo img {
+    height: 42px;
+  }
+
+  .industry-panels {
+    height: auto;
+  }
+
+  .industry-panel {
+    min-height: 280px;
   }
 
   .section {
